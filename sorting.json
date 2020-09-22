@@ -1,0 +1,44 @@
+{
+  "watch": ["/home/$USER/Downloads"],
+  "paths": {
+    "IDSP": "/Users/jonassenghaas/Library/Mobile Documents/com~apple~CloudDocs/ITU/A Studies/SI (Fall: Winter 2020)/Introduction to Data Science and Programming (15 ECTS)",
+    "RBS": "/Users/jonassenghaas/Library/Mobile Documents/com~apple~CloudDocs/ITU/A Studies/SI (Fall: Winter 2020)/Data Science in Reseach, Business and Society (7.5 ECTS)",
+    "MATH": "/Users/jonassenghaas/Library/Mobile Documents/com~apple~CloudDocs/ITU/A Studies/SI (Fall: Winter 2020)/Linear Algebra and Optimisation (7.5 ECTS)"
+  },
+  "match": {
+    "^itu": "@IDSP/",
+    "^Screenshot": "/home/$USER/Pictures/Screenshots"
+  },
+  "types": {
+    "photo": [
+      ".jpeg",
+      ".jpg",
+      ".JPG",
+      ".png",
+      ".gif",
+      ".icns",
+      ".tiff",
+      ".tif",
+      ".HEIC"
+    ],
+    "video": [".mp4", ".mpg", ".mpeg", ".mov", ".wpd", ".MOV"],
+    "audio": [".mp3", ".wav", ".aif", ".mpa", ".mid", ".midi", ".cda"],
+    "productivity": [".doc", ".docx", ".odt", ".pdf", ".tex", ".wpd"],
+    "programming": [
+      ".py",
+      ".java",
+      ".js",
+      ".php",
+      ".bash",
+      ".zsh",
+      ".swift",
+      ".c",
+      ".cpp",
+      ".cs"
+    ],
+    "datascience": [".txt", ".json", ".csv", ".dat", ".sql", ".xml"],
+    "creativity": [".psd", ".ai"],
+    "web": [".html"],
+    "installers": [".dmg", ".bin", ".zip", ".pkg"]
+  }
+}
