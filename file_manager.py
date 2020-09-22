@@ -11,6 +11,8 @@ import os
 import re
 import pwd
 import json
+
+from watchdog.observers.api import ObservedWatch
 from helpers import *
 from strategies import *
 from datetime import datetime
@@ -201,16 +203,16 @@ def on_modified(event):
 	# Rule of thumb, don't put functions in loop signature, it can make it significant more slot.
 	# I don't think it makes a big impact here, but it will in other languages.
 
-	# [TODO] Observer fires twice because of move_file
 	try:
 		file_names = os.listdir(event.src_path)
 	except:
-		file_names = []
+		return
 
 	for file in file_names:
 		# items() return the key/name and value of a dictionary
 		for match, dest in CONFIG['match'].items():
 			dest_filtered = filter_variables(dest)
+
 			if re.match(match, file):
 				move_file(event.src_path, file, dest_filtered)
 
@@ -226,10 +228,11 @@ def on_modified(event):
 
 def main():
 	#initialize event handler as instance of class "FileSystemEventHandler"
-	event_handler = FileSystemEventHandler()
-	event_handler.on_modified = on_modified
+	observers = {}
 
-	observers = []
+	event_handler = FileSystemEventHandler()
+	# event_handler.on_modified = on_modified
+	event_handler.on_modified = on_modified
 
 	for ob_path in CONFIG['watch']:
 		obs = Observer()
@@ -238,16 +241,17 @@ def main():
 
 		obs.schedule(event_handler, ob_path_filtered, recursive=False)
 		obs.start()
-		observers.append(obs)
+
+		observers[ob_path_filtered] = obs
 
 	try:
 		while True:
 			time.sleep(1)
 	except KeyboardInterrupt:
-		for obs in observers:
+		for obs in observers.values():
 			obs.stop()
 
-	for obs in observers:
+	for obs in observers.values():
 		obs.join()
 
 if __name__ == "__main__":

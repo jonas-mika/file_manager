@@ -7,7 +7,11 @@
   },
   "match": {
     "^itu": "@IDSP/",
-    "^Screenshot": "/home/$USER/Pictures/Screenshots"
+    "^Screenshot": "/home/$USER/Pictures/Screenshots",
+    "([^s]+(.(?i)(jpg|png|gif|bmp))$)": "/home/$USER/Pictures"
+  },
+  "pipes": {
+    "photo": "format_images | format_date"
   },
   "types": {
     "photo": [
