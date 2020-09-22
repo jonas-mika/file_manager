@@ -1,6 +1,13 @@
 import datetime
 import re
 import os
+import pwd
+
+def get_user():
+	return pwd.getpwuid( os.getuid() )[ 0 ]
+
+def filter_variables(text):
+	return text.replace('$USER', get_user())
 
 def format_time():
 	# create formatted time the when the file was moved 

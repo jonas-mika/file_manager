@@ -196,12 +196,6 @@ def move_file(src, file, dest):
 	os.rename(f'{src}/{file}', f'{dest}/{file}')
 	print(f">>> moved {file} to <{dest}>")
 
-def get_user():
-	return pwd.getpwuid( os.getuid() )[ 0 ]
-
-def filter_variables(text):
-	return text.replace('$USER', get_user())
-
 #Driver Code, when watchdogs recognizes change in tracked folders
 def on_modified(event):
 	# Rule of thumb, don't put functions in loop signature, it can make it significant more slot.
