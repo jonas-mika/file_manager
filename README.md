@@ -2,9 +2,9 @@
 
 ## TODO
 
-- [] The observable fires twice because it removes a file from the path it watches.
-- [] Fix @paths.
-- [] Make strategies or pipes for different files.
+- [ ] The observable fires twice because it removes a file from the path it watches.
+- [ ] Fix @paths.
+- [ ] Make strategies or pipes for different files.
 
 ## To Run
 
@@ -16,7 +16,7 @@ Then type:
 `python file_manager.py`
 to run the program.
 
-It will watch folders in sorting.json's "watch".
+It will watch each folders(create observers) in sorting.json's "watch".
 And it will match in sorting.json's "match".
 
 The match-format will be:
