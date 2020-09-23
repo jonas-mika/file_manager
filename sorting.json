@@ -1,18 +1,17 @@
 {
   "watch": ["/home/$USER/Downloads"],
   "paths": {
-    "IDSP": "/Users/jonassenghaas/Library/Mobile Documents/com~apple~CloudDocs/ITU/A Studies/SI (Fall: Winter 2020)/Introduction to Data Science and Programming (15 ECTS)",
-    "RBS": "/Users/jonassenghaas/Library/Mobile Documents/com~apple~CloudDocs/ITU/A Studies/SI (Fall: Winter 2020)/Data Science in Reseach, Business and Society (7.5 ECTS)",
-    "MATH": "/Users/jonassenghaas/Library/Mobile Documents/com~apple~CloudDocs/ITU/A Studies/SI (Fall: Winter 2020)/Linear Algebra and Optimisation (7.5 ECTS)"
+    "@TEST": "/home/$USER/Pictures/Test"
   },
   "match": {
-    "^itu": "@IDSP/",
+    "^test-path": "@TEST/success",
     "^Screenshot": "/home/$USER/Pictures/Screenshots",
     "([^s]+(.(?i)(jpg|png|gif|bmp))$)": "/home/$USER/Pictures"
   },
   "pipes": {
     "photo": "format_images | format_date"
   },
+
   "types": {
     "photo": [
       ".jpeg",

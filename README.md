@@ -2,8 +2,10 @@
 
 ## TODO
 
-- [ ] The observable fires twice because it removes a file from the path it watches.
-- [ ] Fix @paths.
+- [x] Fix @paths.
+- [x] Make directory creation recursive.
+
+- [ ] The observable fires twice because it removes a file from the path it watches. That can be many events in a second if there is 100 files.
 - [ ] Make strategies or pipes for different files.
 
 ## To Run

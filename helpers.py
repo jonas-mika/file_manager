@@ -6,8 +6,11 @@ import pwd
 def get_user():
 	return pwd.getpwuid( os.getuid() )[ 0 ]
 
-def filter_variables(text):
+def filter_variables(text, paths={}):
+	for p in paths:
+		text = text.replace(p, paths[p])
 	return text.replace('$USER', get_user())
+
 
 def format_time():
 	# create formatted time the when the file was moved 

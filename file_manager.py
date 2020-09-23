@@ -181,18 +181,8 @@ with open('./sorting.json', 'r') as f:
 		
 # 	os.rename(new_path, renamed_path)
 
-
-# def sort_screenshot(src, file, dest):
-# 	try: 
-# 		os.mkdir(f"{dest}/screenshots")
-# 	except: None
-			
-# 	new_path = f"{dest}/screenshots/{file}"
-# 	os.rename(src, new_path)
-# 	print(">>> moved to <screenshots>")
-
 def move_file(src, file, dest):
-	try: os.mkdir(f'{dest}')
+	try: os.makedirs(f'{dest}')
 	except: None
 
 	os.rename(f'{src}/{file}', f'{dest}/{file}')
@@ -211,10 +201,12 @@ def on_modified(event):
 	for file in file_names:
 		# items() return the key/name and value of a dictionary
 		for match, dest in CONFIG['match'].items():
-			dest_filtered = filter_variables(dest)
+			dest_filtered = filter_variables(dest, CONFIG['paths'])
 
-			if re.match(match, file):
-				move_file(event.src_path, file, dest_filtered)
+			try:
+				if re.match(match, file):
+					move_file(event.src_path, file, dest_filtered)
+			except: None
 
 		# src = f'{event.src_path}/{file}'
 
@@ -237,7 +229,7 @@ def main():
 	for ob_path in CONFIG['watch']:
 		obs = Observer()
 
-		ob_path_filtered = filter_variables(ob_path)
+		ob_path_filtered = filter_variables(ob_path, CONFIG['paths'])
 
 		obs.schedule(event_handler, ob_path_filtered, recursive=False)
 		obs.start()
