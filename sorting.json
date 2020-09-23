@@ -1,12 +1,17 @@
 {
   "watch": ["/home/$USER/Downloads"],
   "paths": {
-    "@TEST": "/home/$USER/Pictures/Test"
+    "@TEST": "/home/$USER/Pictures/Test",
+    "@SCHOOL": "/home/$USER/Documents/School"
   },
   "match": {
     "^test-path": "@TEST/success",
     "^Screenshot": "/home/$USER/Pictures/Screenshots",
-    "([^s]+(.(?i)(jpg|png|gif|bmp))$)": "/home/$USER/Pictures"
+    "([^s]+(.(?i)(jpg|png|gif|bmp))$)": "/home/$USER/Pictures",
+    "^Pipe-test": "/home/$USER/Pictures | Format-date",
+    "^bsind": "@SCHOOL/itu/ds/bsind",
+    "^bsdsr": "@SCHOOL/itu/ds/bsdsr",
+    "^bsald": "@SCHOOL/itu/ds/bsald"
   },
   "pipes": {
     "photo": "format_images | format_date"
