@@ -1,10 +1,15 @@
-# README
+# README: FILE_MANAGER
+
+## Description
+This is an collaborative project of Frederik and Mika. The Sript aims to track folders and sort them depending according to a specific algorithm into a destination folder. Both the tracked_folders and the destination folder should be chosen by the User via a GUI. The program should be able to run in the background or do a cleanup from time to time, depending on the User preferences 
 
 ## TODO
+Mika
+- [ ] Make a GUI to choose path of both tracked and destination folder
+- [ ] Make the program run on every OS and independent from the Python that it is installed on the local machine (Is this possible @Frederik?)
+- [ ] Fix bug of failing downloads from webbrowser while script is running
 
-- [x] Fix @paths.
-- [x] Make directory creation recursive.
-
+Frederik
 - [ ] The observable fires twice because it removes a file from the path it watches. That can be many events in a second if there is 100 files.
 - [ ] Make strategies or pipes for different files.
 
